@@ -36,8 +36,6 @@ menus = {
         {"item_no": "11", "name": "cheesecake", "price":
 ```
 
-<em>menus is a Python dictionary that stores different menus for a restaurant. It has three categories: "food," "drink," and "dessert." Each category contains a list of items with their item numbers, names, and prices.</em>
-
 The `menus` dictionary contains the food, drink, and dessert menus. Each menu item is a dictionary with the following keys:
 
 * `item_no`: The item number.

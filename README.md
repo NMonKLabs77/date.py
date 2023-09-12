@@ -1,70 +1,45 @@
-# Love A.I Restaurant 
+ # Love A.I. - Restaurant Date App
 
-This is a Python program that simulates a conversation between a couple and a restaurant's AI assistant named Love A.I. The program first asks the couple's names and then displays a welcome message. It then shows the food, drink, and dessert menus and prompts the couple to make their choices. 
+This is a restaurant date app that allows users to order food, drinks, and desserts from a menu. The app also calculates the total expense of the meal and provides a running balance of the user's budget. If the user's total expenses exceeds his/her budget it would result in him not having another date with his/her partner but if his total expenses does not exceed his budget, Love A.I grants him the free pass to have a second date with, well, his date ofcourse! 
 
-After the couple has made their choices, the program calculates the total expense and shows the remaining budget.
-It then asks the user if he/she would like to pay the bill and based on the output of expense > budget, if expense is more than budget he would not be lucky in having another 
-date with this person. 
+### Code Explanation
 
-Here are some code snippets and explanations:
+The code for this app is written in Python. The main file is `date.py`. This file imports all of the necessary modules, defines the menus, and gets the user's name and date's name. It also displays the welcome screen and conversation between the couples.
 
-`python
-# Get user and date's name
-uname = input("Enter your name: ")
-date_name = input("Enter date's name: ")
-```
+The `menus` dictionary contains the food, drink, and dessert menus. Each menu item is a dictionary with the following keys:
 
-These lines of code get the user's name and the date's name and store them in the variables `uname` and `date_name`.
+* `item_no`: The item number.
+* `name`: The name of the item.
+* `price`: The price of the item.
 
-```python
-# Display welcome screen and conversation between the couples
-print(f'Welcome {uname} and {date_name}! My name is Love A.I. Is it your first time at the finest restaurant in town?')
+### Here are snippets of my python code with a summary of the inner workings:
 
-# Pause 2 seconds to simulate conversation
-sleep(4)
+'''python
 
-print(f'Oh really? What a beautiful couple you two are!\nWould you like to see our food and drink menus?')
-```
+menus = {
+    "food": [
+        {"item_no": "1", "name": "bouillon", "price": 22},
+        {"item_no": "2", "name": "marinate chicken", "price": 25},
+        {"item_no": "3", "name": "double burger", "price": 15},
+        {"item_no": "4", "name": "salad", "price": 5},
+        {"item_no": "5", "name": "sauteed fish", "price": 5.99}
+    ],
+    "drink": [
+        {"item_no": "6", "name": "red wine", "price": 10},
+        {"item_no": "7", "name": "white wine", "price": 15},
+        {"item_no": "8", "name": "prosecco", "price": 30},
+        {"item_no": "9", "name": "virgin mojito", "price": 35},
+        {"item_no": "10", "name": "shirley temple", "price": 25}
+    ],
+    "dessert": [
+        {"item_no": "11", "name": "cheesecake", "price": 4.99},
+        {"item_no": "12", "name": "chocolate cake", "price": 5.99},
+        {"item_no": "13", "name": "apple pie", "price": 3.99},
+        {"item_no": "14", "name": "strawberry ice cream", "price": 2.99},
+        {"item_no": "15", "name": "tiramisu", "price": 8.99}
+    ]
+}
+'''
+<em>This is the menu for the Love A.I App. It's basically nesting of dictionaries holding menu item information inside of food, drink, dessert menu lists which are inturn inside of a 'menus' dictionary.<em> The nesting of lists inside made it possible for me to use the 'enumerate' method to add a counter or more specifically helps number my menu items so that the user would easily be able to access the menus and menu items by an item number when making orders.
 
-These lines of code display a welcome message and a conversation between the couples. The `sleep()` function pauses the execution of the program for 4 seconds to simulate a conversation.
 
-```python
-# Show budget
-print(f"Budget: {my_budget}")
-
-for item_no, item_info in food_menu.items():
-    print(f"{item_no}: {item_info['name']} - ${item_info['price']:.2f}")
-
-for item_no, item_info in drink_menu.items():
-    print(f"{item_no}: {item_info['name']} - ${item_info['price']:.2f}")
-```
-
-These lines of code show the budget and the food and drink menus. The `for` loops iterate over the `food_menu` and `drink_menu` dictionaries and print the item number, name, and price of each item.
-
-```python
-# Prompt user for food choice
-while True: 
-  u_order = input(f'{uname}, What food item would you and {date_name} like to order? Choose Item Number: 1 - 5,  0 to exit')
-  if u_order in food_menu:
-   food_choice = food_menu[u_order]
-   orders.append(food_choice)
-   total_expense += food_choice['price']
-  elif u_order == '0':
-      break
-  else: "Invalid choice!\nPlease select 1-5 or 0 to exit"
-
-# Prompt user for drink choice
-while True: 
-  drink_order = input(f"{uname}, What would you'all like to drink? Choose Item Number: 1.1 - 5.5, 0 to exit")
-  if drink_order in drink_menu:
-   drink_choice = drink_menu[drink_order]
-   orders.append(drink_choice)
-   total_expense += drink_choice['price']
-  elif u_order == '0':
-      break
-  else: 
-     "Invalid choice!\nPlease select 1.1 - 5.5 or 0 to exit" 
-
-sleep(2)
-```
-First we have a `while` loop stating `while True:` prompt user to make food choice order by dictionary id number. It uses an `if` statement to check if the id corresponds to any food item in food menu dictionary

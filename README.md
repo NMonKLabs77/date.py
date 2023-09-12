@@ -2,7 +2,7 @@
 
 This is a restaurant date app that allows users to order food, drinks, and desserts from a menu. The app also calculates the total expense of the meal and provides a running balance of the user's budget. If the user's total expenses exceeds his/her budget it would result in him not having another date with his/her partner but if his total expenses does not exceed his budget, Love A.I grants him the free pass to have a second date with, well, his date ofcourse!
 
-[Link to date.py][/date.py]
+[Link to date.py](/date.py)
 
 ### Code Explanation
 
